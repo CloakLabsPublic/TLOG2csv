@@ -66,3 +66,11 @@ Regrettably the IBM test data uses the same values for different fields and
 so for example I have yet to be able to distinguish the placement of the
 StoreID and the cashier number. Both are 0001 in the test data. If anyone
 can tell me which is which that would be awesome.
+
+I logged my reverse engineering train of thought in storytime.md
+
+The utilities are missing unit tests. Right now eamtrana.dat is the only
+test data file I have, I could use more. The IBM TLOG format also exists
+in multiple versions and individual stores can customize certain fields.
+
+It's a messy world.
