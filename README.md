@@ -70,7 +70,16 @@ can tell me which is which that would be awesome.
 I logged my reverse engineering train of thought in storytime.md
 
 The utilities are missing unit tests. Right now eamtrana.dat is the only
-test data file I have, I could use more. The IBM TLOG format also exists
-in multiple versions and individual stores can customize certain fields.
+test data file I have, I could use more. A regression test can be done with:
 
-It's a messy world.
+    $ python unpack-tlog.py < eamtrana.dat > testIntermediate.csv
+    $ python transform.py < testIntermediate.csv > testFinal.csv
+    $ diff testIntermediate.csv intermediate.csv
+    $ diff testFinal.csv final.csv
+
+Both those final diffs should be zero. Then again it's possible that either
+of those base csv files already contains one or more errors. That's where
+checking against the scanned image receipts is important.
+
+Note: The IBM TLOG format exists in multiple versions and individual stores can
+customize certain fields. It's a messy world.
